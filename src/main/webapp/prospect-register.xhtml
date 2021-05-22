@@ -1,0 +1,49 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://java.sun.com/jsf/core"
+    template="templates/main-template.xhtml">
+
+    <ui:define name="metadata">
+    </ui:define>
+    <ui:define name="content">
+        <h:form id="registerProspectForm">
+			<p:panel header="Captura de prospecto">
+		    	<div class="ui-g">
+		    		<div class="ui-g-12 ui-md-6">
+		    			<h:panelGrid columns="2" >
+			 	 		      <p:outputLabel for="name" value="Nombre"/>
+			 	 		      <p:inputText id="name" value="#{prospectBean.prospect.name}"/>
+			 	 		      
+			 	 		      <p:outputLabel for="lastName" value="Apellidos"/>
+			 	 		      <p:inputText id="lastName" value="#{prospectBean.prospect.lastName}"/>
+			 	 		      
+			 	 		      <p:outputLabel for="phone" value="Telefono"/>
+			 	 		      <p:inputMask id="phone" value="#{prospectBean.prospect.phone}" mask="(999) 999-9999"/>
+			 	 		      
+			 	 		      <p:outputLabel for="email" value="Correo"/>
+			 	 		      <p:inputText id="email" value="#{prospectBean.prospect.email}"/>
+			 	 		      
+			 	 		      <p:outputLabel for="address" value="Dirección"/>
+			 	 		      <p:inputText id="address" value="#{prospectBean.prospect.address}"/>
+			 	 		      
+			 	 		      <p:outputLabel for="city" value="Ciudad"/>
+			 	 		      <p:inputText id="city" value="#{prospectBean.prospect.city}"/>
+			 	 		      
+			 	 		      <p:outputLabel for="state" value="Estado"/>
+			 	 		      <p:inputText id="state" value="#{prospectBean.prospect.state}"/>
+			 	 		      
+			 	 		</h:panelGrid>
+		    		</div>
+		    		<div class="ui-g-12 ui-md-6">
+    				 	<p:selectManyMenu id="vehicles" value="#{prospectBean.selectedCars}" showCheckbox="true">
+		            		<f:selectItems value="#{prospectBean.allCars}" var="car" itemLabel="#{car.model} - #{car.color} - #{car.year}" itemValue="#{car}" />
+		        		</p:selectManyMenu>
+    				</div>		
+		    	</div>
+			</p:panel>
+	 	 	 <p:commandButton action="#{prospectBean.sendProspectInfo}" value="Enviar" update=":registerProspectForm"/>
+		</h:form>			
+    </ui:define>
+</ui:composition>
