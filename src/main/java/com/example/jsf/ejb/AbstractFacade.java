@@ -38,6 +38,12 @@ public abstract class AbstractFacade<T> {
 		return allQuery.getResultList();
 	}
 	
+	protected T findById(String id) {
+		session = DBConfig.getSessionFactory().getCurrentSession();
+		createTransaction();
+		return session.get(entityClass, id);
+	}
+	
 	private void createTransaction() {
 		if(session.getTransaction() == null || !session.getTransaction().isActive()) {
 			session.beginTransaction();

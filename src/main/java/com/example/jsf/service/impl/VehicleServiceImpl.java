@@ -26,4 +26,9 @@ public class VehicleServiceImpl implements VehicleService{
 		return vehicleFacade.findAll();
 	}
 
+	@Override
+	public CarInfo findVehicleById(String id) {
+		return vehicleFacade.findVehicleById(id);
+	}
+
 }

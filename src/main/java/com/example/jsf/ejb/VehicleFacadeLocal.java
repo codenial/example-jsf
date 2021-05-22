@@ -17,5 +17,9 @@ public interface VehicleFacadeLocal {
 	 * 
 	 * */
 	CarInfo save(CarInfo carInfo);
+	/**
+	 * 
+	 * */
+	CarInfo findVehicleById(String id);
 
 }

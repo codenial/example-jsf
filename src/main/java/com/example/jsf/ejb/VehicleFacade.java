@@ -21,4 +21,9 @@ public class VehicleFacade extends AbstractFacade<CarInfo> implements VehicleFac
 		return super.save(carInfo);
 	}
 
+	@Override
+	public CarInfo findVehicleById(String id) {
+		return super.findById(id);
+	}
+
 }

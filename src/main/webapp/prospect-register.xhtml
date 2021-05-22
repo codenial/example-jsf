@@ -37,7 +37,7 @@
 			 	 		</h:panelGrid>
 		    		</div>
 		    		<div class="ui-g-12 ui-md-6">
-    				 	<p:selectManyMenu id="vehicles" value="#{prospectBean.selectedCars}" showCheckbox="true">
+    				 	<p:selectManyMenu id="vehicles" value="#{prospectBean.selectedCars}" converter="#{vehicleConverter}" showCheckbox="true" >
 		            		<f:selectItems value="#{prospectBean.allCars}" var="car" itemLabel="#{car.model} - #{car.color} - #{car.year}" itemValue="#{car}" />
 		        		</p:selectManyMenu>
     				</div>		

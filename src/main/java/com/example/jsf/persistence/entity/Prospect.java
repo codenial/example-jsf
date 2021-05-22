@@ -2,6 +2,7 @@ package com.example.jsf.persistence.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -30,8 +31,8 @@ public class Prospect {
 	private String city;
 	@Column(name = "prospect_state")
 	private String state;
-	@OneToMany
-	@JoinColumn(referencedColumnName = "prospect_id")
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "prospect_id")
 	private List<ProspectCar> carList;
 	
 	public String getName() {

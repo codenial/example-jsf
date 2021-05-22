@@ -17,4 +17,8 @@ public interface VehicleService {
 	 * @return <code>List<CarInfo></code>
 	 * */
 	List<CarInfo> findAllVehicles();
+	/**
+	 * 
+	 * */
+	CarInfo findVehicleById(String id);
 }
